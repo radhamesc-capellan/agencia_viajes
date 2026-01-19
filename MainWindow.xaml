@@ -180,16 +180,17 @@
             <Grid>
 
                 <MediaElement
-                    x:Name="VideoPlaceholder"
+                    x:Name="VideoPlaceholder"   
                     IsMuted="True"
                     LoadedBehavior="Play"
                     MediaEnded="OnMediaEnded"
                     MediaFailed="OnVideoFailed"
                     MediaOpened="OnVideoOpened"
-                    Source="C:\Users\Pablo\source\repos\Proyecto Interfaces\Assets\AnimacionPortada.mp4"
+                    Source="C:\Users\Radamanthys\source\repos\Proyecto Interfaces\Assets\AnimacionPortada.mp4"
                     Stretch="UniformToFill"
                     UnloadedBehavior="Manual"
-                    Visibility="Visible" />
+                    Visibility="Visible" 
+                    />
 
 
                 <ContentControl
