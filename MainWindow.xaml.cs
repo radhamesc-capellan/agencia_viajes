@@ -18,8 +18,14 @@ namespace Proyecto_Interfaces
         private void OnMediaEnded(object sender, RoutedEventArgs e)
         {
             var media = sender as MediaElement;
-            media?.Stop();
-            media?.Play();
+
+            if (media != null)
+            {
+                media.Position = TimeSpan.Zero;
+                media.Play();
+            }
+            //media?.Stop();
+            //media?.Play();
         }
 
         private void OnVideoOpened(object sender, RoutedEventArgs e)
@@ -39,9 +45,14 @@ namespace Proyecto_Interfaces
 
         private void MostrarContenido(UIElement contenido)
         {
+            VideoPlaceholder.Stop();
             VideoPlaceholder.Visibility = Visibility.Collapsed;
+
             MainContent.Content = contenido;
             MainContent.Visibility = Visibility.Visible;
+            //VideoPlaceholder.Visibility = Visibility.Collapsed;
+            //MainContent.Content = contenido;
+            //MainContent.Visibility = Visibility.Visible;
         }
 
         private void MostrarLogo()
