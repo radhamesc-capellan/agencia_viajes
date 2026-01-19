@@ -1,0 +1,458 @@
+﻿<UserControl
+    x:Class="Proyecto_Interfaces.EurotripView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <UserControl.Resources>
+        <DropShadowEffect
+            x:Key="CardShadow"
+            BlurRadius="12"
+            Opacity="0.2"
+            ShadowDepth="3"
+            Color="#000000" />
+
+        <Style x:Key="ContactarButtonStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Height" Value="36" />
+            <Setter Property="Width" Value="220" />
+            <Setter Property="Margin" Value="10,15,0,0" />
+            <Setter Property="Background" Value="#2A9D8F" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border
+                            x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="6">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#E76F5F" />
+                                <Setter Property="FontSize" Value="16" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="FormTextBoxStyle" TargetType="TextBox">
+            <Setter Property="Height" Value="30" />
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="Padding" Value="8,0" />
+            <Setter Property="Margin" Value="0,5" />
+        </Style>
+
+        <Style x:Key="FormComboBoxStyle" TargetType="ComboBox">
+            <Setter Property="Height" Value="30" />
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="Padding" Value="8,0" />
+            <Setter Property="Margin" Value="0,5" />
+        </Style>
+    </UserControl.Resources>
+
+    <ScrollViewer Margin="0,0,0,10" VerticalScrollBarVisibility="Hidden">
+        <StackPanel>
+            <Border
+                Margin="0,0,0,25"
+                Background="White"
+                CornerRadius="8"
+                Effect="{StaticResource CardShadow}">
+                <Grid Height="400">
+                    <Border ClipToBounds="True" CornerRadius="8">
+                        <Image
+                            Margin="8,8,8,8"
+                            Source="/Assets/Eurotrip/bannereurotrip.jpg"
+                            Stretch="UniformToFill" />
+                    </Border>
+                </Grid>
+            </Border>
+
+            <StackPanel>
+                <Border
+                    Margin="0,0,0,20"
+                    Background="White"
+                    CornerRadius="8"
+                    Effect="{StaticResource CardShadow}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Image
+                            Grid.Column="0"
+                            Margin="10"
+                            Source="/Assets/Eurotrip/Paris.jpg"
+                            Stretch="UniformToFill" />
+                        <StackPanel
+                            Grid.Column="1"
+                            Margin="10"
+                            VerticalAlignment="Center">
+                            <TextBlock
+                                FontSize="20"
+                                FontWeight="Bold"
+                                Foreground="#2A9D8F"
+                                Text="París" />
+                            <TextBlock
+                                Margin="0,5"
+                                Text="París es mucho más que la Torre Eiffel; es una experiencia sensorial completa. Piérdete por las encantadoras calles empedradas de Montmartre, donde artistas pintan al aire libre, o relájate en los Jardines de Luxemburgo. Visita el Louvre para ver la Mona Lisa y luego disfruta de un crucero nocturno por el Sena para ver la ciudad iluminada. La gastronomía es un arte aquí: desde croissants recién horneados hasta cenas de alta cocina. Es el destino definitivo para el romance, la moda y la historia, ofreciendo un encanto atemporal que te enamorará."
+                                TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <Border
+                    Margin="0,0,0,20"
+                    Background="White"
+                    CornerRadius="8"
+                    Effect="{StaticResource CardShadow}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel
+                            Grid.Column="0"
+                            Margin="10"
+                            VerticalAlignment="Center">
+                            <TextBlock
+                                FontSize="20"
+                                FontWeight="Bold"
+                                Foreground="#2A9D8F"
+                                Text="Milán" />
+                            <TextBlock
+                                Margin="0,5"
+                                Text="Milán combina el ritmo frenético de los negocios con la elegancia del arte italiano. No puedes dejar de visitar el imponente Duomo, una obra maestra de la arquitectura gótica, y caminar por la lujosa Galleria Vittorio Emanuele II. Es la capital mundial de la moda, ideal para ir de compras o simplemente admirar el estilo en las calles. Además, alberga 'La Última Cena' de Leonardo da Vinci, una joya imperdible. Por la noche, la zona de los Navigli cobra vida con sus canales y bares, perfecta para disfrutar del famoso 'aperitivo' milanés."
+                                TextWrapping="Wrap" />
+                        </StackPanel>
+                        <Image
+                            Grid.Column="1"
+                            Margin="10"
+                            Source="/Assets/Eurotrip/Milan.jpg"
+                            Stretch="UniformToFill" />
+                    </Grid>
+                </Border>
+
+                <Border
+                    Margin="0,0,0,20"
+                    Background="White"
+                    CornerRadius="8"
+                    Effect="{StaticResource CardShadow}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Image
+                            Grid.Column="0"
+                            Margin="10"
+                            Source="/Assets/Eurotrip/Praga.jpg"
+                            Stretch="UniformToFill" />
+                        <StackPanel
+                            Grid.Column="1"
+                            Margin="10"
+                            VerticalAlignment="Center">
+                            <TextBlock
+                                FontSize="20"
+                                FontWeight="Bold"
+                                Foreground="#2A9D8F"
+                                Text="Praga" />
+                            <TextBlock
+                                Margin="0,5"
+                                Text="Conocida como la ciudad de las cien torres, Praga parece sacada de un cuento de hadas. Cruza el histórico Puente de Carlos al amanecer para evitar multitudes y maravíllate con las estatuas barrocas. El Castillo de Praga domina la ciudad, ofreciendo vistas espectaculares y siglos de historia real. No te pierdas el Reloj Astronómico en la Plaza de la Ciudad Vieja, que cobra vida cada hora. Además de su arquitectura, Praga es famosa por su cerveza de calidad mundial y sus acogedoras tabernas subterráneas que te transportan al pasado."
+                                TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <Border
+                    Margin="0,0,0,20"
+                    Background="White"
+                    CornerRadius="8"
+                    Effect="{StaticResource CardShadow}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel
+                            Grid.Column="0"
+                            Margin="10"
+                            VerticalAlignment="Center">
+                            <TextBlock
+                                FontSize="20"
+                                FontWeight="Bold"
+                                Foreground="#2A9D8F"
+                                Text="Viena" />
+                            <TextBlock
+                                Margin="0,5"
+                                Text="Viena es sinónimo de elegancia imperial y música clásica. Pasea por los majestuosos palacios de Schönbrunn y Hofburg para sentirte como la realeza de la dinastía Habsburgo. La ciudad respira cultura, con su famosa Ópera Estatal y museos de clase mundial en el Barrio de los Museos. No puedes irte sin probar la auténtica tarta Sacher en una de sus históricas cafeterías, donde el tiempo parece detenerse. Viena ofrece una calidad de vida excepcional, parques inmaculados y una atmósfera sofisticada que te cautivará."
+                                TextWrapping="Wrap" />
+                        </StackPanel>
+                        <Image
+                            Grid.Column="1"
+                            Margin="10"
+                            Source="/Assets/Eurotrip/Viena.jpg"
+                            Stretch="UniformToFill" />
+                    </Grid>
+                </Border>
+
+                <Border
+                    Margin="0,0,0,20"
+                    Background="White"
+                    CornerRadius="8"
+                    Effect="{StaticResource CardShadow}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Image
+                            Grid.Column="0"
+                            Margin="10"
+                            Source="/Assets/Eurotrip/Berlin.jpg"
+                            Stretch="UniformToFill" />
+                        <StackPanel
+                            Grid.Column="1"
+                            Margin="10"
+                            VerticalAlignment="Center">
+                            <TextBlock
+                                FontSize="20"
+                                FontWeight="Bold"
+                                Foreground="#2A9D8F"
+                                Text="Berlín" />
+                            <TextBlock
+                                Margin="0,5"
+                                Text="Berlín es una ciudad de contrastes, donde la historia trágica se encuentra con una modernidad vibrante y alternativa. Visita los restos del Muro de Berlín en la East Side Gallery y reflexiona en el Monumento al Holocausto. La Puerta de Brandeburgo es un símbolo de unidad que no puedes perderte. Berlín también es famosa por su inigualable vida nocturna, su escena artística underground y sus mercadillos. Es una capital verde, llena de parques y lagos, con una atmósfera multicultural que la convierte en una de las ciudades más fascinantes de Europa."
+                                TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <Border
+                    Margin="0,0,0,20"
+                    Background="White"
+                    CornerRadius="8"
+                    Effect="{StaticResource CardShadow}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel
+                            Grid.Column="0"
+                            Margin="10"
+                            VerticalAlignment="Center">
+                            <TextBlock
+                                FontSize="20"
+                                FontWeight="Bold"
+                                Foreground="#2A9D8F"
+                                Text="Ámsterdam" />
+                            <TextBlock
+                                Margin="0,5"
+                                Text="Ámsterdam es una ciudad única construida sobre el agua, famosa por sus pintorescos canales concéntricos declarados Patrimonio de la Humanidad. La mejor forma de explorarla es en bicicleta, uniéndote al flujo de los locales. Sumérgete en la cultura visitando el Museo Van Gogh o el Rijksmuseum, y conoce la historia en la Casa de Ana Frank. Sus calles estrechas están llenas de cafeterías acogedoras y tiendas de diseño. Es una ciudad que celebra la libertad y la tolerancia, ofreciendo un ambiente relajado y hermoso en cualquier época del año."
+                                TextWrapping="Wrap" />
+                        </StackPanel>
+                        <Image
+                            Grid.Column="1"
+                            Margin="10"
+                            Source="/Assets/Eurotrip/Amsterdam.jpg"
+                            Stretch="UniformToFill" />
+                    </Grid>
+                </Border>
+
+                <Border
+                    Margin="0,0,0,20"
+                    Background="White"
+                    CornerRadius="8"
+                    Effect="{StaticResource CardShadow}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Image
+                            Grid.Column="0"
+                            Margin="10"
+                            Source="/Assets/Eurotrip/Londres.jpg"
+                            Stretch="UniformToFill" />
+                        <StackPanel
+                            Grid.Column="1"
+                            Margin="10"
+                            VerticalAlignment="Center">
+                            <TextBlock
+                                FontSize="20"
+                                FontWeight="Bold"
+                                Foreground="#2A9D8F"
+                                Text="Londres" />
+                            <TextBlock
+                                Margin="0,5"
+                                Text="Londres es una metrópolis global donde la tradición real convive con la innovación constante. Escucha las campanadas del Big Ben, observa el cambio de guardia en el Palacio de Buckingham y disfruta de las vistas desde el London Eye. Los museos como el Británico y el de Historia Natural son gratuitos y espectaculares. Pasea por el Soho o Camden Town para ver el lado más alternativo, y termina el día viendo un musical en el West End. Es una ciudad inagotable, llena de parques reales, pubs históricos y una diversidad cultural asombrosa."
+                                TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <Border
+                    Margin="0,0,0,20"
+                    Background="White"
+                    CornerRadius="8"
+                    Effect="{StaticResource CardShadow}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel
+                            Grid.Column="0"
+                            Margin="10"
+                            VerticalAlignment="Center">
+                            <TextBlock
+                                FontSize="20"
+                                FontWeight="Bold"
+                                Foreground="#2A9D8F"
+                                Text="Roma" />
+                            <TextBlock
+                                Margin="0,5"
+                                Text="Roma es un museo al aire libre donde cada piedra cuenta una historia milenaria. Entra en el Coliseo e imagina las luchas de gladiadores, pasea por el Foro Romano y pide un deseo lanzando una moneda a la Fontana di Trevi. Visita el Vaticano para admirar la Capilla Sixtina y la Basílica de San Pedro. Pero Roma también es disfrutar de la 'dolce vita': comer la mejor pasta carbonara en el Trastevere, saborear un gelato artesanal y ver pasar la vida en sus plazas. Es caótica, apasionada y eternamente bella."
+                                TextWrapping="Wrap" />
+                        </StackPanel>
+                        <Image
+                            Grid.Column="1"
+                            Margin="10"
+                            Source="/Assets/Eurotrip/Roma.jpg"
+                            Stretch="UniformToFill" />
+                    </Grid>
+                </Border>
+            </StackPanel>
+
+            <Border
+                Margin="0,20,0,20"
+                Background="White"
+                CornerRadius="8"
+                Effect="{StaticResource CardShadow}">
+                <Grid Margin="25">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock
+                        Margin="0,0,0,15"
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Foreground="#2A9D8F"
+                        Text="Contáctanos para planificar tu ruta ideal" />
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="20" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0">
+                            <TextBlock
+                                Margin="0,0,0,5"
+                                FontSize="14"
+                                FontWeight="SemiBold"
+                                Foreground="#2A9D8F"
+                                Text="Nombre:" />
+                            <TextBox x:Name="NombreTextBox" Style="{StaticResource FormTextBoxStyle}" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="2">
+                            <TextBlock
+                                Margin="0,0,0,5"
+                                FontSize="14"
+                                FontWeight="SemiBold"
+                                Foreground="#2A9D8F"
+                                Text="Apellidos:" />
+                            <TextBox x:Name="ApellidosTextBox" Style="{StaticResource FormTextBoxStyle}" />
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Grid.Row="2" Margin="0,10,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="20" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0">
+                            <TextBlock
+                                Margin="0,0,0,5"
+                                FontSize="14"
+                                FontWeight="SemiBold"
+                                Foreground="#2A9D8F"
+                                Text="Nacionalidad:" />
+                            <TextBox x:Name="NacionalidadTextBox" Style="{StaticResource FormTextBoxStyle}" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="2">
+                            <TextBlock
+                                Margin="0,0,0,5"
+                                FontSize="14"
+                                FontWeight="SemiBold"
+                                Foreground="#2A9D8F"
+                                Text="Ciudad de salida:" />
+                            <ComboBox x:Name="CiudadSalidaComboBox" Style="{StaticResource FormComboBoxStyle}">
+                                <ComboBoxItem Content="Madrid" />
+                                <ComboBoxItem Content="Barcelona" />
+                                <ComboBoxItem Content="Valencia" />
+                                <ComboBoxItem Content="Bilbao" />
+                                <ComboBoxItem Content="Sevilla" />
+                            </ComboBox>
+                        </StackPanel>
+                    </Grid>
+
+                    <StackPanel Grid.Row="3" Margin="0,10,0,0">
+                        <TextBlock
+                            Margin="0,0,0,5"
+                            FontSize="14"
+                            FontWeight="SemiBold"
+                            Foreground="#2A9D8F"
+                            Text="Correo electrónico:" />
+                        <TextBox x:Name="EmailTextBox" Style="{StaticResource FormTextBoxStyle}" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="4" Margin="0,10,0,0">
+                        <TextBlock
+                            Margin="0,0,0,5"
+                            FontSize="14"
+                            FontWeight="SemiBold"
+                            Foreground="#2A9D8F"
+                            Text="Teléfono:" />
+                        <TextBox x:Name="TelefonoTextBox" Style="{StaticResource FormTextBoxStyle}" />
+                    </StackPanel>
+
+                    <Button
+                        x:Name="ContactarButton"
+                        Grid.Row="5"
+                        Width="360"
+                        Margin="0,28,0,0"
+                        HorizontalAlignment="Center"
+                        Click="OnContactarClick"
+                        Content="Contáctanos para planificar tu ruta ideal"
+                        Style="{StaticResource ContactarButtonStyle}" />
+                </Grid>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

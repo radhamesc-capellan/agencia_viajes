@@ -1,0 +1,574 @@
+﻿<UserControl
+    x:Class="Proyecto_Interfaces.CrucerosView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <UserControl.Resources>
+        <DropShadowEffect
+            x:Key="CardShadow"
+            BlurRadius="12"
+            Opacity="0.2"
+            ShadowDepth="3"
+            Color="#000000" />
+
+
+        <Style x:Key="VerDetallesButtonStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Height" Value="28" />
+            <Setter Property="Width" Value="90" />
+            <Setter Property="Margin" Value="4,0" />
+            <Setter Property="Background" Value="#2A9D8F" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border
+                            x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="6">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#1D7A6F" />
+                                <Setter Property="FontSize" Value="15" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style x:Key="ReservarButtonStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Height" Value="28" />
+            <Setter Property="Width" Value="90" />
+            <Setter Property="Margin" Value="4,0" />
+            <Setter Property="Background" Value="#E76F51" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border
+                            x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="6">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#D45A3F" />
+                                <Setter Property="FontSize" Value="15" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <ScrollViewer Margin="0,0,0,5" VerticalScrollBarVisibility="Hidden">
+        <StackPanel>
+            <Border
+                Margin="0,0,0,25"
+                Background="White"
+                CornerRadius="8"
+                Effect="{StaticResource CardShadow}">
+                <Grid Height="520">
+                    <Border ClipToBounds="True" CornerRadius="8">
+                        <Image
+                            Margin="10,10,10,10"
+                            Source="/Assets/Cruceros/crucero.jpg"
+                            Stretch="UniformToFill" />
+                    </Border>
+                    <Border Background="#44000000" CornerRadius="8" />
+                    <StackPanel
+                        Margin="30"
+                        VerticalAlignment="Bottom"
+                        Panel.ZIndex="1">
+                        <TextBlock
+                            FontSize="36"
+                            FontWeight="Bold"
+                            Foreground="White"
+                            Text="Crucero Mediterráneo Premium" />
+                        <TextBlock
+                            Margin="0,6"
+                            FontSize="19"
+                            Foreground="White"
+                            Opacity="0.95"
+                            Text="7 días • 4 países • Todo incluido • Salida desde Barcelona" />
+                        <WrapPanel Margin="0,15,0,0">
+                            <Button
+                                Click="OnViewDetailsClick"
+                                Content="Ver detalles"
+                                Style="{StaticResource VerDetallesButtonStyle}" />
+                            <Button
+                                Click="OnReserveClick"
+                                Content="Reservar"
+                                Style="{StaticResource ReservarButtonStyle}" />
+                        </WrapPanel>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+
+            <TextBlock
+                Margin="0,0,0,20"
+                HorizontalAlignment="Left"
+                FontSize="22"
+                FontWeight="SemiBold"
+                Foreground="#2A9D8F"
+                Text="Cruceros destacados" />
+
+            <Grid Margin="0,0,0,30">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+
+                <Border
+                    Grid.Column="0"
+                    Background="White"
+                    CornerRadius="8"
+                    Effect="{StaticResource CardShadow}"
+                    MouseLeftButtonDown="OnCardClick">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="200" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Border ClipToBounds="True" CornerRadius="6">
+                            <Image
+                                Margin="8,8,8,8"
+                                Source="/Assets/Cruceros/crucero1.jpg"
+                                Stretch="UniformToFill" />
+                        </Border>
+                        <StackPanel Grid.Row="1" Margin="15">
+                            <TextBlock
+                                FontSize="18"
+                                FontWeight="SemiBold"
+                                Text="Caribe Exótico" />
+                            <TextBlock
+                                Margin="0,4"
+                                Foreground="#555"
+                                Text="10 días • Salida desde Miami • Todo incluido"
+                                TextWrapping="Wrap" />
+                            <WrapPanel Margin="0,12,0,0">
+                                <Button
+                                    Click="OnViewDetailsClick"
+                                    Content="Ver detalles"
+                                    Style="{StaticResource VerDetallesButtonStyle}" />
+                                <Button
+                                    Click="OnReserveClick"
+                                    Content="Reservar"
+                                    Style="{StaticResource ReservarButtonStyle}" />
+                            </WrapPanel>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+
+                <Border
+                    Grid.Column="2"
+                    Background="White"
+                    CornerRadius="8"
+                    Effect="{StaticResource CardShadow}"
+                    MouseLeftButtonDown="OnCardClick">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="200" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Border ClipToBounds="True" CornerRadius="6">
+                            <Image
+                                Margin="8,8,8,8"
+                                Source="/Assets/Cruceros/crucero2.jpg"
+                                Stretch="UniformToFill" />
+                        </Border>
+                        <StackPanel Grid.Row="1" Margin="15">
+                            <TextBlock
+                                FontSize="18"
+                                FontWeight="SemiBold"
+                                Text="Norte de Europa" />
+                            <TextBlock
+                                Margin="0,4"
+                                Foreground="#555"
+                                Text="12 días • Fiordos noruegos, Copenhague, San Petersburgo"
+                                TextWrapping="Wrap" />
+                            <WrapPanel Margin="0,12,0,0">
+                                <Button
+                                    Click="OnViewDetailsClick"
+                                    Content="Ver detalles"
+                                    Style="{StaticResource VerDetallesButtonStyle}" />
+                                <Button
+                                    Click="OnReserveClick"
+                                    Content="Reservar"
+                                    Style="{StaticResource ReservarButtonStyle}" />
+                            </WrapPanel>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </Grid>
+
+
+            <TextBlock
+                Margin="0,0,0,15"
+                HorizontalAlignment="Left"
+                FontSize="20"
+                FontWeight="SemiBold"
+                Foreground="#2A9D8F"
+                Text="Más cruceros disponibles" />
+
+
+            <UniformGrid
+                Margin="0,0,0,12"
+                Columns="4"
+                Rows="1">
+                <Border
+                    Margin="6"
+                    Background="White"
+                    CornerRadius="8"
+                    Effect="{StaticResource CardShadow}"
+                    MouseLeftButtonDown="OnCardClick">
+                    <StackPanel Margin="8">
+                        <Border
+                            Height="110"
+                            ClipToBounds="True"
+                            CornerRadius="6">
+                            <Image Source="/Assets/Cruceros/crucero3.jpg" Stretch="UniformToFill" />
+                        </Border>
+                        <TextBlock
+                            Margin="0,6"
+                            FontSize="13"
+                            FontWeight="SemiBold"
+                            Text="Grecia Clásica"
+                            TextWrapping="Wrap" />
+                        <TextBlock
+                            FontSize="11"
+                            Foreground="#666"
+                            Text="8 días • Atenas, Santorini, Mykonos"
+                            TextWrapping="Wrap" />
+                        <WrapPanel Margin="0,8,0,0">
+                            <Button
+                                Width="78"
+                                Height="26"
+                                Click="OnViewDetailsClick"
+                                Content="Ver"
+                                FontSize="11"
+                                Style="{StaticResource VerDetallesButtonStyle}" />
+                            <Button
+                                Width="78"
+                                Height="26"
+                                Click="OnReserveClick"
+                                Content="Reservar"
+                                FontSize="11"
+                                Style="{StaticResource ReservarButtonStyle}" />
+                        </WrapPanel>
+                    </StackPanel>
+                </Border>
+                <Border
+                    Margin="6"
+                    Background="White"
+                    CornerRadius="8"
+                    Effect="{StaticResource CardShadow}"
+                    MouseLeftButtonDown="OnCardClick">
+                    <StackPanel Margin="8">
+                        <Border
+                            Height="110"
+                            ClipToBounds="True"
+                            CornerRadius="6">
+                            <Image Source="/Assets/Cruceros/crucero4.jpg" Stretch="UniformToFill" />
+                        </Border>
+                        <TextBlock
+                            Margin="0,6"
+                            FontSize="13"
+                            FontWeight="SemiBold"
+                            Text="Transatlántico"
+                            TextWrapping="Wrap" />
+                        <TextBlock
+                            FontSize="11"
+                            Foreground="#666"
+                            Text="14 días • Nueva York - Southampton"
+                            TextWrapping="Wrap" />
+                        <WrapPanel Margin="0,8,0,0">
+                            <Button
+                                Width="78"
+                                Height="26"
+                                Click="OnViewDetailsClick"
+                                Content="Ver"
+                                FontSize="11"
+                                Style="{StaticResource VerDetallesButtonStyle}" />
+                            <Button
+                                Width="78"
+                                Height="26"
+                                Click="OnReserveClick"
+                                Content="Reservar"
+                                FontSize="11"
+                                Style="{StaticResource ReservarButtonStyle}" />
+                        </WrapPanel>
+                    </StackPanel>
+                </Border>
+                <Border
+                    Margin="6"
+                    Background="White"
+                    CornerRadius="8"
+                    Effect="{StaticResource CardShadow}"
+                    MouseLeftButtonDown="OnCardClick">
+                    <StackPanel Margin="8">
+                        <Border
+                            Height="110"
+                            ClipToBounds="True"
+                            CornerRadius="6">
+                            <Image Source="/Assets/Cruceros/crucero5.jpg" Stretch="UniformToFill" />
+                        </Border>
+                        <TextBlock
+                            Margin="0,6"
+                            FontSize="13"
+                            FontWeight="SemiBold"
+                            Text="Ámsterdam - Budapest"
+                            TextWrapping="Wrap" />
+                        <TextBlock
+                            FontSize="11"
+                            Foreground="#666"
+                            Text="10 días • Río Danubio"
+                            TextWrapping="Wrap" />
+                        <WrapPanel Margin="0,8,0,0">
+                            <Button
+                                Width="78"
+                                Height="26"
+                                Click="OnViewDetailsClick"
+                                Content="Ver"
+                                FontSize="11"
+                                Style="{StaticResource VerDetallesButtonStyle}" />
+                            <Button
+                                Width="78"
+                                Height="26"
+                                Click="OnReserveClick"
+                                Content="Reservar"
+                                FontSize="11"
+                                Style="{StaticResource ReservarButtonStyle}" />
+                        </WrapPanel>
+                    </StackPanel>
+                </Border>
+                <Border
+                    Margin="6"
+                    Background="White"
+                    CornerRadius="8"
+                    Effect="{StaticResource CardShadow}"
+                    MouseLeftButtonDown="OnCardClick">
+                    <StackPanel Margin="8">
+                        <Border
+                            Height="110"
+                            ClipToBounds="True"
+                            CornerRadius="6">
+                            <Image Source="/Assets/Cruceros/crucero6.jpg" Stretch="UniformToFill" />
+                        </Border>
+                        <TextBlock
+                            Margin="0,6"
+                            FontSize="13"
+                            FontWeight="SemiBold"
+                            Text="Dubái y Maldivas"
+                            TextWrapping="Wrap" />
+                        <TextBlock
+                            FontSize="11"
+                            Foreground="#666"
+                            Text="12 días • Lujo y playas"
+                            TextWrapping="Wrap" />
+                        <WrapPanel Margin="0,8,0,0">
+                            <Button
+                                Width="78"
+                                Height="26"
+                                Click="OnViewDetailsClick"
+                                Content="Ver"
+                                FontSize="11"
+                                Style="{StaticResource VerDetallesButtonStyle}" />
+                            <Button
+                                Width="78"
+                                Height="26"
+                                Click="OnReserveClick"
+                                Content="Reservar"
+                                FontSize="11"
+                                Style="{StaticResource ReservarButtonStyle}" />
+                        </WrapPanel>
+                    </StackPanel>
+                </Border>
+            </UniformGrid>
+
+
+            <UniformGrid Columns="4" Rows="1">
+                <Border
+                    Margin="6"
+                    Background="White"
+                    CornerRadius="8"
+                    Effect="{StaticResource CardShadow}"
+                    MouseLeftButtonDown="OnCardClick">
+                    <StackPanel Margin="8">
+                        <Border
+                            Height="110"
+                            ClipToBounds="True"
+                            CornerRadius="6">
+                            <Image Source="/Assets/Cruceros/crucero7.jpg" Stretch="UniformToFill" />
+                        </Border>
+                        <TextBlock
+                            Margin="0,6"
+                            FontSize="13"
+                            FontWeight="SemiBold"
+                            Text="Costa Oeste USA"
+                            TextWrapping="Wrap" />
+                        <TextBlock
+                            FontSize="11"
+                            Foreground="#666"
+                            Text="9 días • San Francisco a Los Ángeles"
+                            TextWrapping="Wrap" />
+                        <WrapPanel Margin="0,8,0,0">
+                            <Button
+                                Width="78"
+                                Height="26"
+                                Click="OnViewDetailsClick"
+                                Content="Ver"
+                                FontSize="11"
+                                Style="{StaticResource VerDetallesButtonStyle}" />
+                            <Button
+                                Width="78"
+                                Height="26"
+                                Click="OnReserveClick"
+                                Content="Reservar"
+                                FontSize="11"
+                                Style="{StaticResource ReservarButtonStyle}" />
+                        </WrapPanel>
+                    </StackPanel>
+                </Border>
+                <Border
+                    Margin="6"
+                    Background="White"
+                    CornerRadius="8"
+                    Effect="{StaticResource CardShadow}"
+                    MouseLeftButtonDown="OnCardClick">
+                    <StackPanel Margin="8">
+                        <Border
+                            Height="110"
+                            ClipToBounds="True"
+                            CornerRadius="6">
+                            <Image Source="/Assets/Cruceros/crucero8.jpg" Stretch="UniformToFill" />
+                        </Border>
+                        <TextBlock
+                            Margin="0,6"
+                            FontSize="13"
+                            FontWeight="SemiBold"
+                            Text="Antártida Explorer"
+                            TextWrapping="Wrap" />
+                        <TextBlock
+                            FontSize="11"
+                            Foreground="#666"
+                            Text="15 días • Aventura polar"
+                            TextWrapping="Wrap" />
+                        <WrapPanel Margin="0,8,0,0">
+                            <Button
+                                Width="78"
+                                Height="26"
+                                Click="OnViewDetailsClick"
+                                Content="Ver"
+                                FontSize="11"
+                                Style="{StaticResource VerDetallesButtonStyle}" />
+                            <Button
+                                Width="78"
+                                Height="26"
+                                Click="OnReserveClick"
+                                Content="Reservar"
+                                FontSize="11"
+                                Style="{StaticResource ReservarButtonStyle}" />
+                        </WrapPanel>
+                    </StackPanel>
+                </Border>
+                <Border
+                    Margin="6"
+                    Background="White"
+                    CornerRadius="8"
+                    Effect="{StaticResource CardShadow}"
+                    MouseLeftButtonDown="OnCardClick">
+                    <StackPanel Margin="8">
+                        <Border
+                            Height="110"
+                            ClipToBounds="True"
+                            CornerRadius="6">
+                            <Image Source="/Assets/Cruceros/crucero9.jpg" Stretch="UniformToFill" />
+                        </Border>
+                        <TextBlock
+                            Margin="0,6"
+                            FontSize="13"
+                            FontWeight="SemiBold"
+                            Text="Japón y Corea"
+                            TextWrapping="Wrap" />
+                        <TextBlock
+                            FontSize="11"
+                            Foreground="#666"
+                            Text="11 días • Tokio, Seúl, Osaka"
+                            TextWrapping="Wrap" />
+                        <WrapPanel Margin="0,8,0,0">
+                            <Button
+                                Width="78"
+                                Height="26"
+                                Click="OnViewDetailsClick"
+                                Content="Ver"
+                                FontSize="11"
+                                Style="{StaticResource VerDetallesButtonStyle}" />
+                            <Button
+                                Width="78"
+                                Height="26"
+                                Click="OnReserveClick"
+                                Content="Reservar"
+                                FontSize="11"
+                                Style="{StaticResource ReservarButtonStyle}" />
+                        </WrapPanel>
+                    </StackPanel>
+                </Border>
+                <Border
+                    Margin="6"
+                    Background="White"
+                    CornerRadius="8"
+                    Effect="{StaticResource CardShadow}"
+                    MouseLeftButtonDown="OnCardClick">
+                    <StackPanel Margin="8">
+                        <Border
+                            Height="110"
+                            ClipToBounds="True"
+                            CornerRadius="6">
+                            <Image Source="/Assets/Cruceros/crucero10.jpg" Stretch="UniformToFill" />
+                        </Border>
+                        <TextBlock
+                            Margin="0,6"
+                            FontSize="13"
+                            FontWeight="SemiBold"
+                            Text="Río Amazonas"
+                            TextWrapping="Wrap" />
+                        <TextBlock
+                            FontSize="11"
+                            Foreground="#666"
+                            Text="8 días • Selva y naturaleza"
+                            TextWrapping="Wrap" />
+                        <WrapPanel Margin="0,8,0,0">
+                            <Button
+                                Width="78"
+                                Height="26"
+                                Click="OnViewDetailsClick"
+                                Content="Ver"
+                                FontSize="11"
+                                Style="{StaticResource VerDetallesButtonStyle}" />
+                            <Button
+                                Width="78"
+                                Height="26"
+                                Click="OnReserveClick"
+                                Content="Reservar"
+                                FontSize="11"
+                                Style="{StaticResource ReservarButtonStyle}" />
+                        </WrapPanel>
+                    </StackPanel>
+                </Border>
+            </UniformGrid>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

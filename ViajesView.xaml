@@ -1,0 +1,575 @@
+﻿<UserControl
+    x:Class="Proyecto_Interfaces.ViajesView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <UserControl.Resources>
+        <DropShadowEffect
+            x:Key="CardShadow"
+            BlurRadius="12"
+            Opacity="0.2"
+            ShadowDepth="3"
+            Color="#000000" />
+
+
+        <Style x:Key="VerDetallesButtonStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Height" Value="28" />
+            <Setter Property="Width" Value="90" />
+            <Setter Property="Margin" Value="4,0" />
+            <Setter Property="Background" Value="#2A9D8F" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border
+                            x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="6">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#1D7A6F" />
+                                <Setter Property="FontSize" Value="15" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style x:Key="ReservarButtonStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Height" Value="28" />
+            <Setter Property="Width" Value="90" />
+            <Setter Property="Margin" Value="4,0" />
+            <Setter Property="Background" Value="#E76F51" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border
+                            x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="6">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#D45A3F" />
+                                <Setter Property="FontSize" Value="15" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <ScrollViewer Margin="0,0,0,10" VerticalScrollBarVisibility="Hidden">
+        <StackPanel>
+
+            <Border
+                Margin="0,0,0,25"
+                Background="White"
+                CornerRadius="8"
+                Effect="{StaticResource CardShadow}">
+                <Grid Height="520">
+                    <Border ClipToBounds="True" CornerRadius="8">
+                        <Image
+                            Margin="10,10,10,10"
+                            Source="/Assets/Viajes/Viaje.jpg"
+                            Stretch="UniformToFill" />
+                    </Border>
+                    <Border Background="#44000000" CornerRadius="8" />
+                    <StackPanel
+                        Margin="30"
+                        VerticalAlignment="Bottom"
+                        Panel.ZIndex="1">
+                        <TextBlock
+                            FontSize="36"
+                            FontWeight="Bold"
+                            Foreground="White"
+                            Text="Ruta por el Sur de España" />
+                        <TextBlock
+                            Margin="0,6"
+                            FontSize="19"
+                            Foreground="White"
+                            Opacity="0.95"
+                            Text="8 días • Sevilla, Córdoba, Granada • Guía incluido" />
+                        <WrapPanel Margin="0,15,0,0">
+                            <Button
+                                Click="OnViewDetailsClick"
+                                Content="Ver detalles"
+                                Style="{StaticResource VerDetallesButtonStyle}" />
+                            <Button
+                                Click="OnReserveClick"
+                                Content="Reservar"
+                                Style="{StaticResource ReservarButtonStyle}" />
+                        </WrapPanel>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+
+            <TextBlock
+                Margin="0,0,0,20"
+                HorizontalAlignment="Left"
+                FontSize="22"
+                FontWeight="SemiBold"
+                Foreground="#2A9D8F"
+                Text="Viajes destacados" />
+
+            <Grid Margin="0,0,0,30">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+
+                <Border
+                    Grid.Column="0"
+                    Background="White"
+                    CornerRadius="8"
+                    Effect="{StaticResource CardShadow}"
+                    MouseLeftButtonDown="OnCardClick">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="200" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Border ClipToBounds="True" CornerRadius="6">
+                            <Image
+                                Margin="8,8,8,8"
+                                Source="/Assets/Viajes/Viaje1.jpg"
+                                Stretch="UniformToFill" />
+                        </Border>
+                        <StackPanel Grid.Row="1" Margin="15">
+                            <TextBlock
+                                FontSize="18"
+                                FontWeight="SemiBold"
+                                Text="Andalucía Completa" />
+                            <TextBlock
+                                Margin="0,4"
+                                Foreground="#555"
+                                Text="8 días • Sevilla, Córdoba, Granada, Ronda"
+                                TextWrapping="Wrap" />
+                            <WrapPanel Margin="0,12,0,0">
+                                <Button
+                                    Click="OnViewDetailsClick"
+                                    Content="Ver detalles"
+                                    Style="{StaticResource VerDetallesButtonStyle}" />
+                                <Button
+                                    Click="OnReserveClick"
+                                    Content="Reservar"
+                                    Style="{StaticResource ReservarButtonStyle}" />
+                            </WrapPanel>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+
+                <Border
+                    Grid.Column="2"
+                    Background="White"
+                    CornerRadius="8"
+                    Effect="{StaticResource CardShadow}"
+                    MouseLeftButtonDown="OnCardClick">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="200" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Border ClipToBounds="True" CornerRadius="6">
+                            <Image
+                                Margin="8,8,8,8"
+                                Source="/Assets/Viajes/Viaje2.jpg"
+                                Stretch="UniformToFill" />
+                        </Border>
+                        <StackPanel Grid.Row="1" Margin="15">
+                            <TextBlock
+                                FontSize="18"
+                                FontWeight="SemiBold"
+                                Text="Ruta del Camino de Santiago" />
+                            <TextBlock
+                                Margin="0,4"
+                                Foreground="#555"
+                                Text="7 días • Últimos 100 km • Albergues y certificado"
+                                TextWrapping="Wrap" />
+                            <WrapPanel Margin="0,12,0,0">
+                                <Button
+                                    Click="OnViewDetailsClick"
+                                    Content="Ver detalles"
+                                    Style="{StaticResource VerDetallesButtonStyle}" />
+                                <Button
+                                    Click="OnReserveClick"
+                                    Content="Reservar"
+                                    Style="{StaticResource ReservarButtonStyle}" />
+                            </WrapPanel>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </Grid>
+
+
+            <TextBlock
+                Margin="0,0,0,15"
+                HorizontalAlignment="Left"
+                FontSize="20"
+                FontWeight="SemiBold"
+                Foreground="#2A9D8F"
+                Text="Más destinos disponibles" />
+
+
+            <UniformGrid
+                Margin="0,0,0,12"
+                Columns="4"
+                Rows="1">
+                <Border
+                    Margin="6"
+                    Background="White"
+                    CornerRadius="8"
+                    Effect="{StaticResource CardShadow}"
+                    MouseLeftButtonDown="OnCardClick">
+                    <StackPanel Margin="8">
+                        <Border
+                            Height="110"
+                            ClipToBounds="True"
+                            CornerRadius="6">
+                            <Image Source="/Assets/Viajes/Viaje3.jpg" Stretch="UniformToFill" />
+                        </Border>
+                        <TextBlock
+                            Margin="0,6"
+                            FontSize="13"
+                            FontWeight="SemiBold"
+                            Text="Barcelona y Costa Brava"
+                            TextWrapping="Wrap" />
+                        <TextBlock
+                            FontSize="11"
+                            Foreground="#666"
+                            Text="5 días • Gaudí, playas y gastronomía"
+                            TextWrapping="Wrap" />
+                        <WrapPanel Margin="0,8,0,0">
+                            <Button
+                                Width="78"
+                                Height="26"
+                                Click="OnViewDetailsClick"
+                                Content="Ver"
+                                FontSize="11"
+                                Style="{StaticResource VerDetallesButtonStyle}" />
+                            <Button
+                                Width="78"
+                                Height="26"
+                                Click="OnReserveClick"
+                                Content="Reservar"
+                                FontSize="11"
+                                Style="{StaticResource ReservarButtonStyle}" />
+                        </WrapPanel>
+                    </StackPanel>
+                </Border>
+                <Border
+                    Margin="6"
+                    Background="White"
+                    CornerRadius="8"
+                    Effect="{StaticResource CardShadow}"
+                    MouseLeftButtonDown="OnCardClick">
+                    <StackPanel Margin="8">
+                        <Border
+                            Height="110"
+                            ClipToBounds="True"
+                            CornerRadius="6">
+                            <Image Source="/Assets/Viajes/Viaje4.jpg" Stretch="UniformToFill" />
+                        </Border>
+                        <TextBlock
+                            Margin="0,6"
+                            FontSize="13"
+                            FontWeight="SemiBold"
+                            Text="Madrid y Toledo"
+                            TextWrapping="Wrap" />
+                        <TextBlock
+                            FontSize="11"
+                            Foreground="#666"
+                            Text="4 días • Arte, historia y tapas"
+                            TextWrapping="Wrap" />
+                        <WrapPanel Margin="0,8,0,0">
+                            <Button
+                                Width="78"
+                                Height="26"
+                                Click="OnViewDetailsClick"
+                                Content="Ver"
+                                FontSize="11"
+                                Style="{StaticResource VerDetallesButtonStyle}" />
+                            <Button
+                                Width="78"
+                                Height="26"
+                                Click="OnReserveClick"
+                                Content="Reservar"
+                                FontSize="11"
+                                Style="{StaticResource ReservarButtonStyle}" />
+                        </WrapPanel>
+                    </StackPanel>
+                </Border>
+                <Border
+                    Margin="6"
+                    Background="White"
+                    CornerRadius="8"
+                    Effect="{StaticResource CardShadow}"
+                    MouseLeftButtonDown="OnCardClick">
+                    <StackPanel Margin="8">
+                        <Border
+                            Height="110"
+                            ClipToBounds="True"
+                            CornerRadius="6">
+                            <Image Source="/Assets/Viajes/Viaje5.jpg" Stretch="UniformToFill" />
+                        </Border>
+                        <TextBlock
+                            Margin="0,6"
+                            FontSize="13"
+                            FontWeight="SemiBold"
+                            Text="Islas Canarias"
+                            TextWrapping="Wrap" />
+                        <TextBlock
+                            FontSize="11"
+                            Foreground="#666"
+                            Text="6 días • Tenerife, Lanzarote, volcanes"
+                            TextWrapping="Wrap" />
+                        <WrapPanel Margin="0,8,0,0">
+                            <Button
+                                Width="78"
+                                Height="26"
+                                Click="OnViewDetailsClick"
+                                Content="Ver"
+                                FontSize="11"
+                                Style="{StaticResource VerDetallesButtonStyle}" />
+                            <Button
+                                Width="78"
+                                Height="26"
+                                Click="OnReserveClick"
+                                Content="Reservar"
+                                FontSize="11"
+                                Style="{StaticResource ReservarButtonStyle}" />
+                        </WrapPanel>
+                    </StackPanel>
+                </Border>
+                <Border
+                    Margin="6"
+                    Background="White"
+                    CornerRadius="8"
+                    Effect="{StaticResource CardShadow}"
+                    MouseLeftButtonDown="OnCardClick">
+                    <StackPanel Margin="8">
+                        <Border
+                            Height="110"
+                            ClipToBounds="True"
+                            CornerRadius="6">
+                            <Image Source="/Assets/Viajes/Viaje6.jpg" Stretch="UniformToFill" />
+                        </Border>
+                        <TextBlock
+                            Margin="0,6"
+                            FontSize="13"
+                            FontWeight="SemiBold"
+                            Text="Pirineos y Andorra"
+                            TextWrapping="Wrap" />
+                        <TextBlock
+                            FontSize="11"
+                            Foreground="#666"
+                            Text="5 días • Naturaleza, senderismo y compras"
+                            TextWrapping="Wrap" />
+                        <WrapPanel Margin="0,8,0,0">
+                            <Button
+                                Width="78"
+                                Height="26"
+                                Click="OnViewDetailsClick"
+                                Content="Ver"
+                                FontSize="11"
+                                Style="{StaticResource VerDetallesButtonStyle}" />
+                            <Button
+                                Width="78"
+                                Height="26"
+                                Click="OnReserveClick"
+                                Content="Reservar"
+                                FontSize="11"
+                                Style="{StaticResource ReservarButtonStyle}" />
+                        </WrapPanel>
+                    </StackPanel>
+                </Border>
+            </UniformGrid>
+
+
+            <UniformGrid Columns="4" Rows="1">
+                <Border
+                    Margin="6"
+                    Background="White"
+                    CornerRadius="8"
+                    Effect="{StaticResource CardShadow}"
+                    MouseLeftButtonDown="OnCardClick">
+                    <StackPanel Margin="8">
+                        <Border
+                            Height="110"
+                            ClipToBounds="True"
+                            CornerRadius="6">
+                            <Image Source="/Assets/Viajes/Viaje7.jpg" Stretch="UniformToFill" />
+                        </Border>
+                        <TextBlock
+                            Margin="0,6"
+                            FontSize="13"
+                            FontWeight="SemiBold"
+                            Text="Valencia y Ciudad de las Artes"
+                            TextWrapping="Wrap" />
+                        <TextBlock
+                            FontSize="11"
+                            Foreground="#666"
+                            Text="4 días • Playa, paella y modernismo"
+                            TextWrapping="Wrap" />
+                        <WrapPanel Margin="0,8,0,0">
+                            <Button
+                                Width="78"
+                                Height="26"
+                                Click="OnViewDetailsClick"
+                                Content="Ver"
+                                FontSize="11"
+                                Style="{StaticResource VerDetallesButtonStyle}" />
+                            <Button
+                                Width="78"
+                                Height="26"
+                                Click="OnReserveClick"
+                                Content="Reservar"
+                                FontSize="11"
+                                Style="{StaticResource ReservarButtonStyle}" />
+                        </WrapPanel>
+                    </StackPanel>
+                </Border>
+                <Border
+                    Margin="6"
+                    Background="White"
+                    CornerRadius="8"
+                    Effect="{StaticResource CardShadow}"
+                    MouseLeftButtonDown="OnCardClick">
+                    <StackPanel Margin="8">
+                        <Border
+                            Height="110"
+                            ClipToBounds="True"
+                            CornerRadius="6">
+                            <Image Source="/Assets/Viajes/Viaje8.jpg" Stretch="UniformToFill" />
+                        </Border>
+                        <TextBlock
+                            Margin="0,6"
+                            FontSize="13"
+                            FontWeight="SemiBold"
+                            Text="Galicia y Santiago"
+                            TextWrapping="Wrap" />
+                        <TextBlock
+                            FontSize="11"
+                            Foreground="#666"
+                            Text="6 días • Marisco, rías y catedral"
+                            TextWrapping="Wrap" />
+                        <WrapPanel Margin="0,8,0,0">
+                            <Button
+                                Width="78"
+                                Height="26"
+                                Click="OnViewDetailsClick"
+                                Content="Ver"
+                                FontSize="11"
+                                Style="{StaticResource VerDetallesButtonStyle}" />
+                            <Button
+                                Width="78"
+                                Height="26"
+                                Click="OnReserveClick"
+                                Content="Reservar"
+                                FontSize="11"
+                                Style="{StaticResource ReservarButtonStyle}" />
+                        </WrapPanel>
+                    </StackPanel>
+                </Border>
+                <Border
+                    Margin="6"
+                    Background="White"
+                    CornerRadius="8"
+                    Effect="{StaticResource CardShadow}"
+                    MouseLeftButtonDown="OnCardClick">
+                    <StackPanel Margin="8">
+                        <Border
+                            Height="110"
+                            ClipToBounds="True"
+                            CornerRadius="6">
+                            <Image Source="/Assets/Viajes/Viaje9.jpg" Stretch="UniformToFill" />
+                        </Border>
+                        <TextBlock
+                            Margin="0,6"
+                            FontSize="13"
+                            FontWeight="SemiBold"
+                            Text="Extremadura y Mérida"
+                            TextWrapping="Wrap" />
+                        <TextBlock
+                            FontSize="11"
+                            Foreground="#666"
+                            Text="5 días • Naturaleza, yacimientos y jamón"
+                            TextWrapping="Wrap" />
+                        <WrapPanel Margin="0,8,0,0">
+                            <Button
+                                Width="78"
+                                Height="26"
+                                Click="OnViewDetailsClick"
+                                Content="Ver"
+                                FontSize="11"
+                                Style="{StaticResource VerDetallesButtonStyle}" />
+                            <Button
+                                Width="78"
+                                Height="26"
+                                Click="OnReserveClick"
+                                Content="Reservar"
+                                FontSize="11"
+                                Style="{StaticResource ReservarButtonStyle}" />
+                        </WrapPanel>
+                    </StackPanel>
+                </Border>
+                <Border
+                    Margin="6"
+                    Background="White"
+                    CornerRadius="8"
+                    Effect="{StaticResource CardShadow}"
+                    MouseLeftButtonDown="OnCardClick">
+                    <StackPanel Margin="8">
+                        <Border
+                            Height="110"
+                            ClipToBounds="True"
+                            CornerRadius="6">
+                            <Image Source="/Assets/Viajes/Viaje10.jpg" Stretch="UniformToFill" />
+                        </Border>
+                        <TextBlock
+                            Margin="0,6"
+                            FontSize="13"
+                            FontWeight="SemiBold"
+                            Text="País Vasco y San Sebastián"
+                            TextWrapping="Wrap" />
+                        <TextBlock
+                            FontSize="11"
+                            Foreground="#666"
+                            Text="5 días • Gastronomía, playas y cultura"
+                            TextWrapping="Wrap" />
+                        <WrapPanel Margin="0,8,0,0">
+                            <Button
+                                Width="78"
+                                Height="26"
+                                Click="OnViewDetailsClick"
+                                Content="Ver"
+                                FontSize="11"
+                                Style="{StaticResource VerDetallesButtonStyle}" />
+                            <Button
+                                Width="78"
+                                Height="26"
+                                Click="OnReserveClick"
+                                Content="Reservar"
+                                FontSize="11"
+                                Style="{StaticResource ReservarButtonStyle}" />
+                        </WrapPanel>
+                    </StackPanel>
+                </Border>
+            </UniformGrid>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

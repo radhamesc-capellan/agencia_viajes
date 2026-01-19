@@ -1,0 +1,176 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>Proyecto_Interfaces</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\AnimacionPortada.mp4" />
+    <None Remove="Assets\Cruceros\Crucero1.jpg" />
+    <None Remove="Assets\Cruceros\Crucero10.jpg" />
+    <None Remove="Assets\Cruceros\Crucero2.jpg" />
+    <None Remove="Assets\Cruceros\Crucero3.jpg" />
+    <None Remove="Assets\Cruceros\Crucero4.jpg" />
+    <None Remove="Assets\Cruceros\Crucero5.jpg" />
+    <None Remove="Assets\Cruceros\Crucero6.jpg" />
+    <None Remove="Assets\Cruceros\Crucero7.jpg" />
+    <None Remove="Assets\Cruceros\Crucero8.jpg" />
+    <None Remove="Assets\Cruceros\Crucero9.jpg" />
+    <None Remove="Assets\Eurotrip\Amsterdam.jpg" />
+    <None Remove="Assets\Eurotrip\BannerEurotrip.jpg" />
+    <None Remove="Assets\Eurotrip\Berlin.jpg" />
+    <None Remove="Assets\Eurotrip\Londres.jpg" />
+    <None Remove="Assets\Eurotrip\Milan.jpg" />
+    <None Remove="Assets\Eurotrip\Paris.jpg" />
+    <None Remove="Assets\Eurotrip\Praga.jpg" />
+    <None Remove="Assets\Eurotrip\Roma.jpg" />
+    <None Remove="Assets\Eurotrip\Viena.jpg" />
+    <None Remove="Assets\Portada.png" />
+    <None Remove="Assets\Portada2.png" />
+    <None Remove="Assets\Portada3.png" />
+    <None Remove="Assets\Trenes\bannerTrenes.jpg" />
+    <None Remove="Assets\Viajes\Viaje.jpg" />
+    <None Remove="Assets\Viajes\Viaje1.jpg" />
+    <None Remove="Assets\Viajes\Viaje10.jpg" />
+    <None Remove="Assets\Viajes\Viaje2.jpg" />
+    <None Remove="Assets\Viajes\Viaje3.jpg" />
+    <None Remove="Assets\Viajes\Viaje4.jpg" />
+    <None Remove="Assets\Viajes\Viaje5.jpg" />
+    <None Remove="Assets\Viajes\Viaje6.jpg" />
+    <None Remove="Assets\Viajes\Viaje7.jpg" />
+    <None Remove="Assets\Viajes\Viaje8.jpg" />
+    <None Remove="Assets\Viajes\Viaje9.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.1.66" />
+    <PackageReference Include="MaterialDesignColors" Version="5.3.0" />
+    <PackageReference Include="MaterialDesignThemes" Version="5.3.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.119" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Portada.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\AnimacionPortada.mp4">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Content Include="Assets\Cruceros\Crucero.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Cruceros\Crucero1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Cruceros\Crucero10.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Cruceros\Crucero2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Cruceros\Crucero3.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Cruceros\Crucero4.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Cruceros\Crucero5.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Cruceros\Crucero6.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Cruceros\Crucero7.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Cruceros\Crucero8.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Cruceros\Crucero9.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Eurotrip\Amsterdam.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Eurotrip\BannerEurotrip.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Eurotrip\Berlin.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Eurotrip\Londres.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Eurotrip\Milan.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Eurotrip\Paris.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Eurotrip\Praga.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Eurotrip\Roma.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Eurotrip\Viena.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Portada2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Portada3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Trenes\bannerTrenes.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Viajes\Viaje.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Viajes\Viaje1.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Viajes\Viaje10.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Viajes\Viaje2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Viajes\Viaje3.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Viajes\Viaje4.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Viajes\Viaje5.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Viajes\Viaje6.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Viajes\Viaje7.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Viajes\Viaje8.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Viajes\Viaje9.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="System\Windows\" />
+  </ItemGroup>
+
+</Project>
