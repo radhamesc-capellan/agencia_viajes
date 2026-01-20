@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Proyecto_Interfaces
+namespace Proyecto_Interfaces.Views
 {
     public partial class TrenesView : UserControl
     {

@@ -2,8 +2,10 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
+using Proyecto_Interfaces;
+using Proyecto_Interfaces.Services;
 
-namespace Proyecto_Interfaces
+namespace Proyecto_Interfaces.Views
 {
     public partial class DetalleProductoView : UserControl
     {

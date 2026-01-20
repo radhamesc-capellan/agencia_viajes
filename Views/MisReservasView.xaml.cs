@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using Proyecto_Interfaces;
+using Proyecto_Interfaces.Services;
 
-namespace Proyecto_Interfaces
+namespace Proyecto_Interfaces.Views
 {
     public partial class MisReservasView : UserControl
     {

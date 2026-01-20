@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using Proyecto_Interfaces;
 
-namespace Proyecto_Interfaces
+namespace Proyecto_Interfaces.Views
 {
     public partial class CrucerosView : UserControl
     {

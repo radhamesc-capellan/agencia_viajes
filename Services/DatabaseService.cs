@@ -5,8 +5,9 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows;
+using Proyecto_Interfaces.Views;
 
-namespace Proyecto_Interfaces
+namespace Proyecto_Interfaces.Services
 {
     public class DatabaseService
     {
