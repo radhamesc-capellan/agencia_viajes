@@ -1,8 +1,9 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using Proyecto_Interfaces.Views;
 
-namespace Proyecto_Interfaces
+namespace Proyecto_Interfaces.Views
 {
     public partial class MainWindow : Window
     {
