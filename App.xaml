@@ -1,9 +1,21 @@
 ﻿<Application x:Class="Proyecto_Interfaces.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:Proyecto_Interfaces"
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="Teal" SecondaryColor="Lime" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign3.Defaults.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <!-- Paleta de Colores Corporativo -->
+            <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#2A9D8F"/>
+            <SolidColorBrush x:Key="PrimaryHueLightBrush" Color="#64CFC1"/>
+            <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="#006E60"/>
+            <SolidColorBrush x:Key="PrimaryHueMidForegroundBrush" Color="White"/>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

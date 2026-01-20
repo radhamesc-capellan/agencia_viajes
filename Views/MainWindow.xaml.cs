@@ -100,6 +100,28 @@ namespace Proyecto_Interfaces.Views
 
         private void OnLoginClick(object sender, RoutedEventArgs e)
         {
+            //Si ya hay un usuario logueado
+            if (!string.IsNullOrEmpty(CurrentUserName))
+            {
+                // Mostramos mensaje de confirmación
+                MessageBoxResult result = MessageBox.Show(
+                    "¿Estás seguro de que deseas cerrar sesión?",
+                    "Cerrar Sesión",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    // Lógica de Logout
+                    CurrentUserName = string.Empty;
+                    LoginButton.Content = "👤 Iniciar sesión";
+                    MostrarLogo(); // Volvemos a la pantalla de inicio
+                    MessageBox.Show("Sesión cerrada correctamente.", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                return;
+            }
+
+            // Si no hay usuario logueado, abrimos la ventana de Login
             var loginWindow = new LoginRegisterWindow();
             loginWindow.Owner = this;
 

@@ -1,14 +1,13 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Text.RegularExpressions;
 using Proyecto_Interfaces;
 
 namespace Proyecto_Interfaces.Views
 {
     public partial class LoginRegisterWindow : Window
     {
-        private const string PlaceholderUsuario = "Nombre de usuario";
-        private const string PlaceholderEmail = "Email (opcional)";
         private bool _isRegisterMode = false;
 
         public string CurrentUserName { get; private set; } = string.Empty;
@@ -18,46 +17,29 @@ namespace Proyecto_Interfaces.Views
             InitializeComponent();
         }
 
-        private void TxtUsuario_GotFocus(object sender, RoutedEventArgs e)
+        private void OnCloseClick(object sender, RoutedEventArgs e)
         {
-            if (TxtUsuario.Text == PlaceholderUsuario)
-            {
-                TxtUsuario.Text = "";
-                TxtUsuario.Foreground = System.Windows.Media.Brushes.Black;
-            }
+            DialogResult = false;
+            Close();
         }
 
-        private void TxtUsuario_LostFocus(object sender, RoutedEventArgs e)
+        private void OnWindowDrag(object sender, MouseButtonEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(TxtUsuario.Text))
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
-                TxtUsuario.Text = PlaceholderUsuario;
-                TxtUsuario.Foreground = System.Windows.Media.Brushes.Gray;
-            }
-        }
-
-        private void TxtEmail_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (TxtEmail.Text == PlaceholderEmail)
-            {
-                TxtEmail.Text = "";
-                TxtEmail.Foreground = System.Windows.Media.Brushes.Black;
-            }
-        }
-
-        private void TxtEmail_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(TxtEmail.Text))
-            {
-                TxtEmail.Text = PlaceholderEmail;
-                TxtEmail.Foreground = System.Windows.Media.Brushes.Gray;
+                DragMove();
             }
         }
 
         private void OnToggleModeClick(object sender, MouseButtonEventArgs e)
         {
             _isRegisterMode = !_isRegisterMode;
+            UpdateViewForCurrentMode();
+            HideMessage();
+        }
 
+        private void UpdateViewForCurrentMode()
+        {
             if (_isRegisterMode)
             {
                 TitleTextBlock.Text = "¡Regístrate, viajero! ✈️";
@@ -72,8 +54,6 @@ namespace Proyecto_Interfaces.Views
                 ToggleTextBlock.Text = "¿Aún no tienes cuenta? Regístrate aquí";
                 TxtEmail.Visibility = Visibility.Collapsed;
             }
-
-            HideMessage();
         }
 
         private void OnPrimaryButtonClick(object sender, RoutedEventArgs e)
@@ -94,7 +74,7 @@ namespace Proyecto_Interfaces.Views
             string contraseña = TxtPassword.Password;
             string email = TxtEmail.Text;
 
-            if (nombre == PlaceholderUsuario || string.IsNullOrWhiteSpace(nombre))
+            if (string.IsNullOrWhiteSpace(nombre))
             {
                 ShowMessage("Por favor, introduce un nombre de usuario.", true);
                 return;
@@ -106,16 +86,42 @@ namespace Proyecto_Interfaces.Views
                 return;
             }
 
-            if (email == PlaceholderEmail) email = "";
+            // Email es opcional, pero si lo agrego tiene que ser valido
+            if (!string.IsNullOrWhiteSpace(email) && !IsValidEmail(email))
+            {
+                ShowMessage("Por favor, introduce un email válido (ej: usuario@dominio.com).", true);
+                return;
+            }
 
             if (App.DbService.RegistrarUsuario(nombre, contraseña, email))
             {
-                ShowMessage("Usuario registrado exitosamente.", false);
-                // Opcional: cerrar ventana o limpiar campos
+                // Éxito: Cambiamos a modo Login automáticamente
+                _isRegisterMode = false;
+                UpdateViewForCurrentMode();
+                TxtPassword.Clear(); // Limpiamos la contraseña por seguridad
+                ShowMessage("¡Registro exitoso! Por favor inicia sesión.", false);
             }
             else
             {
                 ShowMessage("El usuario ya existe.", true);
+            }
+        }
+        //Validacion del campo email
+        private bool IsValidEmail(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+                return false;
+
+            try
+            {
+                // Regex para emails
+                return Regex.IsMatch(email,
+                    @"^[^@\s]+@[^@\s]+\.[^@\s]+$",
+                    RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250));
+            }
+            catch (RegexMatchTimeoutException)
+            {
+                return false;
             }
         }
 
@@ -124,7 +130,7 @@ namespace Proyecto_Interfaces.Views
             string nombre = TxtUsuario.Text;
             string contraseña = TxtPassword.Password;
 
-            if (nombre == PlaceholderUsuario || string.IsNullOrWhiteSpace(nombre))
+            if (string.IsNullOrWhiteSpace(nombre))
             {
                 ShowMessage("Por favor, introduce un nombre de usuario.", true);
                 return;
